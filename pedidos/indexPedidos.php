@@ -281,9 +281,21 @@ function getProducts($conn)
                     </div>
                     <div class="col-lg-5 contact-info__wrapper gradient-brand-color p-5 order-lg-2" id="tablecontact">
                         <h3 class='mt-9 mb-3'>HISTORIAL DE PEDIDOS</h3>
-                        <?php
+                        <div class="d-flex justify-content-center my-4">
+            <button type="button" class="btn btn-success mx-2" id="completadosBtn">Completados</button>
+            <button type="button" class="btn btn-danger mx-2" id="pendientesBtn">Pendientes</button>
+        </div>
+        <!-- Sección dinámica para mostrar los pedidos -->
+        <div id="pedidoContent" class="container">
+            <div class="alert alert-info text-center" role="alert">
+                Seleccione una opción para cargar los pedidos.
+                </div>
+                <?php
                         require_once "read.php";
                         ?>
+           
+        </div>
+                        
                     </div>
                 </div>
             </div>
@@ -410,6 +422,39 @@ function getProducts($conn)
         productosModal.addEventListener('hidden.bs.modal', function () {
             document.body.classList.remove('blur');
         });
+        });
+    
+        // Manejo de los botones para cargar pedidos
+        document.getElementById('completadosBtn').addEventListener('click', function() {
+            fetch('./readCompletados.php')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('pedidoContent').innerHTML = data;
+                })
+                .catch(error => {
+                    document.getElementById('pedidoContent').innerHTML = `
+                        <div class="alert alert-danger" role="alert">
+                            Ocurrió un error al cargar los pedidos completados. Por favor, intente de nuevo.
+                        </div>
+                    `;
+                    console.error('Error al cargar los pedidos completados:', error);
+                });
+        });
+
+        document.getElementById('pendientesBtn').addEventListener('click', function() {
+            fetch('./readPendientes.php')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('pedidoContent').innerHTML = data;
+                })
+                .catch(error => {
+                    document.getElementById('pedidoContent').innerHTML = `
+                        <div class="alert alert-danger" role="alert">
+                            Ocurrió un error al cargar los pedidos pendientes. Por favor, intente de nuevo.
+                        </div>
+                    `;
+                    console.error('Error al cargar los pedidos pendientes:', error);
+                });
         });
     </script>
 
