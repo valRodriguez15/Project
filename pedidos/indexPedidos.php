@@ -68,7 +68,8 @@ function getProducts($conn)
             height: 100%;
             margin: 0;
             padding: 0;
-            overflow: hidden; /* Evitar scroll en la página */
+            overflow: hidden;
+            /* Evitar scroll en la página */
         }
 
         #page-content {
@@ -86,6 +87,7 @@ function getProducts($conn)
             width: 100%;
             top: 0;
         }
+
         .navbar {
             background-color: #343a40;
         }
@@ -116,6 +118,7 @@ function getProducts($conn)
         .navbar-collapse {
             justify-content: center;
         }
+
         section {
             flex-grow: 1;
             /* Permitir que la sección ocupe el resto del espacio disponible */
@@ -177,8 +180,10 @@ function getProducts($conn)
 
         /* Estilo para el apartado de detalles del registro */
         #tablecontact {
-            max-height: 80vh; /* Ajusta la altura máxima según sea necesario */
-            overflow-y: auto; /* Permitir scroll solo en este apartado */
+            max-height: 80vh;
+            /* Ajusta la altura máxima según sea necesario */
+            overflow-y: auto;
+            /* Permitir scroll solo en este apartado */
         }
     </style>
 </head>
@@ -245,14 +250,14 @@ function getProducts($conn)
                                             </div>
                                         </div>
                                         <div class="col-sm-6 mb-3">
-                                        <div class="form-group">
+                                            <div class="form-group">
                                                 <label class="required-field" for="idProduct">Producto</label>
                                                 <select name="idProduct" id="idProduct" class="form-control" required>
                                                     <option value="">Seleccione un producto</option>
                                                     <?php foreach ($productos as $producto): ?>
                                                         <option value="<?php echo $producto['id']; ?>"><?php echo $producto['nombreProducto']; ?></option>
                                                     <?php endforeach; ?>
-                                                    <input name="idProducto" id="idProducto" class="form-control" value="<?php echo $idProduct?>"readonly>
+                                                    <input name="idProducto" id="idProducto" class="form-control" value="<?php echo $idProduct ?>" readonly>
                                                 </select>
                                             </div>
                                         </div>
@@ -282,20 +287,21 @@ function getProducts($conn)
                     <div class="col-lg-5 contact-info__wrapper gradient-brand-color p-5 order-lg-2" id="tablecontact">
                         <h3 class='mt-9 mb-3'>HISTORIAL DE PEDIDOS</h3>
                         <div class="d-flex justify-content-center my-4">
-            <button type="button" class="btn btn-success mx-2" id="completadosBtn">Completados</button>
-            <button type="button" class="btn btn-danger mx-2" id="pendientesBtn">Pendientes</button>
-        </div>
-        <!-- Sección dinámica para mostrar los pedidos -->
-        <div id="pedidoContent" class="container">
-            <div class="alert alert-info text-center" role="alert">
-                Seleccione una opción para cargar los pedidos.
-                </div>
-                <?php
-                        require_once "read.php";
-                        ?>
-           
-        </div>
-                        
+                            <button type="button" class="btn btn-warning" onclick="window.location.href='./indexPedidos.php'">Todos</button>
+                            <button type="button" class="btn btn-success mx-2" id="completadosBtn">Completados</button>
+                            <button type="button" class="btn btn-danger mx-2" id="pendientesBtn">Pendientes</button>
+                        </div>
+                        <!-- Sección dinámica para mostrar los pedidos -->
+                        <div id="pedidoContent" class="container">
+                            <div class="alert alert-info text-center" role="alert">
+                                Seleccione una opción para cargar los pedidos.
+                            </div>
+                            <?php
+                            require_once "read.php";
+                            ?>
+
+                        </div>
+
                     </div>
                 </div>
             </div>
@@ -345,7 +351,7 @@ function getProducts($conn)
     <!-- Modal de ver pedido -->
     <div id="card-container" class="card-container">
         <div id="card" class="card">
-            
+
             <div id="card-header" class="card-header"></div>
             <div id="card-body" class="card-body"></div>
             <div class="card-footer">
@@ -413,17 +419,17 @@ function getProducts($conn)
                 });
             });
             // Agregar clase blur al abrir el modal
-        var productosModal = document.getElementById('productosModal');
-        productosModal.addEventListener('show.bs.modal', function () {
-            document.body.classList.add('blur');
+            var productosModal = document.getElementById('productosModal');
+            productosModal.addEventListener('show.bs.modal', function() {
+                document.body.classList.add('blur');
+            });
+
+            // Eliminar clase blur al cerrar el modal
+            productosModal.addEventListener('hidden.bs.modal', function() {
+                document.body.classList.remove('blur');
+            });
         });
 
-        // Eliminar clase blur al cerrar el modal
-        productosModal.addEventListener('hidden.bs.modal', function () {
-            document.body.classList.remove('blur');
-        });
-        });
-    
         // Manejo de los botones para cargar pedidos
         document.getElementById('completadosBtn').addEventListener('click', function() {
             fetch('./readCompletados.php')
@@ -461,5 +467,3 @@ function getProducts($conn)
 </body>
 
 </html>
-
-
