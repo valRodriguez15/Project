@@ -1,0 +1,194 @@
+body{
+    background-color: #f7f7f7;
+    margin-top:20px;}
+/* pricing tables */
+.pricing-table {
+  background: #e9f0f4;
+  text-align: center;
+  margin: 15px 0;
+}
+
+.pricing-table ul, .pricing-table ol {
+  margin-bottom: 0;
+  padding-left: 0;
+}
+
+.pricing-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  padding: 30px;
+  margin-bottom: 0;
+}
+
+.pricing-table-price {
+  background: #cdd4d8;
+  font-weight: 700;
+  padding: 30px;
+  margin-bottom: 30px;
+}
+
+.pricing-table-price.w-rounded-price {
+  display: table;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  margin: 0 auto 30px auto;
+  padding: 0;
+}
+
+.rounded-price {
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.rounded-price .pricing-price {
+  font-size: 1.75rem;
+}
+
+.rounded-price .pricing-currency {
+  vertical-align: 10px;
+}
+
+.pricing-table-price p {
+  color: #000;
+  margin-bottom: 0;
+}
+
+.pricing-currency {
+  font-size: 1rem;
+  font-weight: 700;
+  vertical-align: 25px;
+}
+
+.pricing-price {
+  font-size: 3rem;
+  font-weight: 700;
+}
+
+.pricing-period {
+  font-weight: 700;
+}
+
+.pricing-table-content li {
+  margin-bottom: 15px;
+}
+
+.pricing-table-button {
+  padding: 15px 0 35px;
+}
+
+.featured.pricing-table {
+  background: #9c64b8;
+}
+
+.featured.pricing-table .pricing-title {
+  color: #fff;
+}
+
+.featured.pricing-table .pricing-table-content ul li {
+  color: #eee;
+}
+
+.featured.pricing-table .pricing-table-price {
+  background: #8853a1;
+}
+
+.featured.pricing-table .pricing-table-price p {
+  color: #fff;
+}
+ul {
+    list-style: none;
+    padding: 0;
+}
+.bg-info-hover {
+    background-color: #1397af !important;
+}
+.bg-info {
+    background-color: #21b9d5 !important;
+}
+
+.bg-primary-hover {
+    background-color: #8853a1 !important;
+}
+.bg-primary {
+    background-color: #9c64b8 !important;
+}
+.text-white {
+    color: #fff !important;
+}
+
+
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* Evitar desplazamiento horizontal */
+}
+
+header {
+  background: #4CAF50;
+  color: white;
+  text-align: center;
+  padding: 1em 0;
+  position: relative; /* Necesario para posicionar el botón dentro del header */
+}
+
+header h1 {
+  margin: 0;
+  padding-right: 100px; /* Espacio para el botón de cerrar sesión */
+}
+
+header .logout-button {
+  position: absolute;
+  top: 50px;
+  left: 1420px;
+  width: auto;
+  height: auto;
+  padding: 5px 10px;
+  font-size: 14px;
+  background-color: #f44336;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px; /* Añadir bordes redondeados */
+}
+
+header .logout-button:hover {
+  background-color: #d32f2f;
+}
+
+main {
+  padding: 20px;
+}
+
+form {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  margin-top: 10px;
+}
+
+input, select, button {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  box-sizing: border-box;
+}
+
+button {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+

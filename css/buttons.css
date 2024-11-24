@@ -1,0 +1,140 @@
+*, ::before, ::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'FontAwesome', sans-serif;
+ 
+  }
+  .container-buttons {
+    width: 500px;
+    height: 500px;
+  
+    margin: auto;
+    display: grid;
+    border-radius: 50%;
+
+  }
+  
+  .box {
+    display: block;
+    background: grey;
+    border-radius: 50%;
+    margin: 0px 10px 0px 10px;
+  }
+  
+  .container-buttons a {
+    width: 115px;
+    height: 115px;
+    border-top-left-radius: 100px;
+    border-bottom-right-radius: 100px;
+    color: #ffffff;
+    background-color: #000;
+    overflow: hidden;
+    text-align: center;
+    font-size: 3.8rem;
+    box-shadow: 10px 2px 10px rgba(0, 0, 0, .9);
+  }
+  
+  .container-buttons a::before {
+    display: block;
+    margin: 30px 0;
+    transition: all .5s ease-in-out;
+  }
+
+  .container-buttons a:hover::before {
+    margin-top: -70px;
+  }
+  
+/*Producción*/
+.container-buttons .one {
+  background-color: #53afff;
+  float: right;
+  margin-top: 25px;
+  margin-right: 25px;
+  }
+  
+  .container-buttons .one::before {
+  content: '\f013';
+  
+  }
+  /*Compras*/
+  .container-buttons .two {
+  background-color: #ff8337;
+  float: left;
+  margin-top: 25px;
+
+  }
+  
+  .container-buttons .two::before {
+  content: '\f270';
+  }
+  /*Marketing*/
+  .container-buttons .three {
+  background-color: #ffbd39;
+  float: left;
+  margin-top: -25px;
+  }
+  
+  .container-buttons .three::before {
+  content: '\f201';
+  }
+  
+  /*CMR*/
+  .container-buttons .four {
+  background-color: #e61c5d;
+  float: right;
+  margin-top: -25px;
+  }
+  
+  .container-buttons .four::before {
+  content: '\f2b5 ';
+  }
+  
+  .container-buttons .five {
+  background-color: #155263;
+  float: inline-start;
+  margin-top: 25px;
+  
+  }
+  
+  .container-buttons .five::before {
+  content: '\f098 ';
+  }
+  
+  /*Financiera*/
+  .container-buttons .six {
+  
+  background-color: #2bb842;
+  float: inline-end;
+  margin-top: 25px;
+  }
+  
+  .container-buttons .six::before {
+  content: '\f1ec ';
+  }
+  /*Logística*/
+  .container-buttons .seven {
+  background-color: #155263;
+  float: right;
+  margin-top: -25px;
+  margin-right: 25px;
+  }
+  
+  .container-buttons .seven::before {
+  content: '\f1b3 ';
+  }
+  /*Ventas*/
+  .container-buttons .eight {
+  background-color: #155263;
+  float: left;
+  margin-top: -25px;
+ 
+  }
+  
+  .container-buttons .eight::before {
+  content: '\f0d6 ';
+  }
+  

@@ -1,0 +1,83 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 20px;
+}
+
+.factura-container {
+    max-width: 900px;
+    margin: 0 auto;
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+h3 {
+    background-color: #444;
+    color: white;
+    padding: 10px;
+    margin: 0;
+    border-radius: 4px;
+}
+
+.encabezado, .datos-pedido, .proceso-interno, .logistica, .detalles-producto {
+    margin-bottom: 20px;
+}
+
+.datos-grid, .proceso-grid, .logistica-grid, .producto-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    background-color: #efefef;
+    padding: 10px;
+    border-radius: 4px;
+}
+
+.datos-grid p, .proceso-grid p, .logistica-grid p, .producto-grid p {
+    margin: 0;
+}
+
+span {
+    font-weight: bold;
+}
+
+.antiguedad-cumplimiento {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.antiguedad {
+    background-color: #efefef;
+    padding: 10px;
+    border-radius: 4px;
+}
+
+.porcentaje-circulo {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2em; /* Aumentar el tamaño del texto */
+    color: #000; /* Color del texto negro */
+    transition: background-color 0.3s;
+    border: 4px solid transparent; /* Borde transparente para hacer el círculo */
+}
+
+.cumplimiento-container {   
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+#cumplimiento-text {
+    margin-left: 20px;
+    font-size: 20px;
+    font-weight: bold;
+}

@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/stylesmod.css">
+    <!-- Bootstrap CSS -->
+    <link href="../css/bootstrap-5.1.3-dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" rel="stylesheet">
+    <!-- JavaScript Bootstrap -->
+    <script src="../css/bootstrap-5.1.3-dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="../css/stylePedidos.css">
+    <title>Página de Submódulos</title>
+    <style>
+        /* Asegurar que el cuerpo ocupe toda la pantalla y no permita scroll */
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            overflow: hidden; /* Evitar scroll en la página */
+        }
+
+        #page-content {
+            height: 100vh;
+            /* Ocupar toda la ventana */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            /* Centrar contenido verticalmente */
+            align-items: center;
+        }
+
+        .navbar {
+            position: fixed;
+            width: 100%;
+            top: 0;
+        }
+        .navbar {
+            background-color: #343a40;
+        }
+
+        .navbar-brand img {
+            height: 40px;
+        }
+
+        .navbar-nav .nav-link {
+            color: #ffffff;
+            font-weight: bold;
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: #f8f9fa;
+            background-color: #495057;
+            border-radius: 5px;
+        }
+
+        .navbar-toggler {
+            border-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .navbar-toggler-icon {
+            color: #ffffff;
+        }
+
+        .navbar-collapse {
+            justify-content: center;
+        }
+
+        section {
+            flex-grow: 1;
+            /* Permitir que la sección ocupe el resto del espacio disponible */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        /* Estilo para el desenfoque de fondo */
+        .blur {
+            filter: blur(5px);
+            transition: filter 0.3s ease-in-out;
+        }
+
+        .card-container {
+            display: none;
+            /* Oculto inicialmente */
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            /* Fondo semi-transparente */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .card {
+            background-color: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 80%;
+            max-width: 600px;
+            max-height: 90vh;
+            /* Para asegurar que no se salga de la pantalla */
+            overflow-y: auto;
+            /* Para manejar contenido largo */
+        }
+
+        .card-header {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+
+        .card-body {
+            margin-bottom: 20px;
+        }
+
+        .card-close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            cursor: pointer;
+        }
+
+        /* Estilo para el contenedor de módulos */
+        .module-container {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr); /* 5 columnas */
+            gap: 10px;
+            padding: 20px;
+            overflow: hidden; /* Evitar scroll en el contenedor */
+        }
+
+        .module {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            transition: transform 0.2s;
+        }
+
+        .module img {
+            width: 150px; /* Ancho fijo para todas las imágenes */
+            height: 150px; /* Alto fijo para todas las imágenes */
+            object-fit: cover;
+            margin-bottom: 10px;
+        }
+
+        .module p {
+            margin: 0;
+            font-weight: bold;
+        }
+
+        .module:hover {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+            <div class="container">
+                <a class="navbar-brand" href="#">
+                    <i class="fa fa-cubes " aria-hidden="true"></i> SUBMÓDULOS
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mx-auto">
+                    </ul>
+                    <div class="d-flex">
+                        <button id="backBtn"  class="fa fa-arrow-left btn btn-secondary me-2" onclick="window.location.href='../modulos/modulos.html'"> Regresar</button>
+                        <button id="logoutBtn" class="fa fa-users btn btn-danger" onclick="window.location.href='../index.html'"> Cerrar Sesión</button>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <br>
+        <br>
+        <br>
+        <div class="module-container">
+            <a href="#modulo1" class="module">
+                <img src="../assets/images/maestro.png" alt="Módulo 1">
+                <p>MPS</p>
+            </a>
+            <a href="#modulo2" class="module">
+                <img src="../assets/images/reduccion.png" alt="Módulo 2">
+                <p>EOQ</p>
+            </a>
+            <a href="#modulo3" class="module">
+                <img src="../assets/images/inventario.png" alt="Módulo 3">
+                <p>INVENTARIO</p>
+            </a>
+            <a href="#modulo4" class="module">
+                <img src="../assets/images/capacidad.png" alt="Módulo 4">
+                <p>CAPACIDAD</p>
+            </a>
+            <a href="#modulo5" class="module">
+                <img src="../assets/images/equilibrio.png" alt="Módulo 5">
+                <p>P. EQUILIBRIO</p>
+            </a>
+            <a href="#modulo6" class="module">
+                <img src="../assets/images/calidad.png" alt="Módulo 6">
+                <p>CALIDAD</p>
+            </a>
+            <a href="#modulo7" class="module">
+                <img src="../assets/images/pronostico.png" alt="Módulo 7">
+                <p>PRONÓSTICO</p>
+            </a>
+            <a href="#modulo8" class="module">
+                <img src="../assets/images/material.png" alt="Módulo 8">
+                <p>MRP</p>
+            </a>
+            <a href="../pedidosAdmin/indexAdmin.php" class="module">
+                <img src="../assets/images/pedidos.png" alt="Módulo 9">
+                <p>PEDIDOS</p>
+            </a>
+            <a href="#modulo10" class="module">
+                <img src="../assets/images/produccion2.png" alt="Módulo 10">
+                <p>O. PRODUCCION</p>
+            </a>
+            <a href="#modulo11" class="module">
+                <img src="../assets/images/balanceo.png" alt="Módulo 11">
+                <p>BALANCEO LINEA</p>
+            </a>
+            <a href="#modulo12" class="module">
+                <img src="../assets/images/plan.png" alt="Módulo 12">
+                <p>PLAN AGREGADO</p>
+            </a>
+            <a href="#modulo13" class="module">
+                <img src="../assets/images/herramientas.png" alt="Módulo 13">
+                <p>HERRAMIENTAS</p>
+            </a>
+            <a href="../tackTime/indexTackTime.php" class="module">
+                <img src="../assets/images/tackTime.png" alt="Módulo 14">
+                <p>TACK TIME</p>
+            </a>
+            <a href="#modulo15" class="module">
+                <img src="../assets/images/reportes.png" alt="Módulo 15">
+                <p>REPORTES</p>
+            </a>
+        </div>
+    </main>
+    <aside id="sideMenu" class="side-menu">
+        <a href="#modulo1">MPS</a>
+        <a href="#modulo2">EOQ</a>
+        <a href="#modulo3">INVENTARIO</a>
+        <a href="#modulo4">CAPACIDAD</a>
+        <a href="#modulo5">P. EQUILIBRIO</a>
+        <a href="#modulo6">CALIDAD</a>
+        <a href="#modulo7">PRONOSTICO</a>
+        <a href="#modulo8">MRP</a>
+        <a href="#modulo9">PEDIDOS</a>
+        <a href="#modulo10">O. PRODUCCION</a>
+        <a href="#modulo11">BALANCEO LINEA</a>
+        <a href="#modulo12">PLAN AGREGADO</a>
+        <a href="#modulo13">HERRAMIENTAS</a>
+        <a href="#modulo14">TACK TIME</a>
+        <a href="#modulo15">REPORTES</a>
+        <button id="closeMenu">Cerrar</button>
+    </aside>
+    <footer>
+        <p>© 2024 UNIAGUSTINIANA</p>
+    </footer>
+    <script src="scriptmodulos.js"></script>
+</body>
+</html>

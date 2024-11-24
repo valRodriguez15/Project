@@ -1,0 +1,116 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; /* Evitar desplazamiento horizontal */
+}
+
+header {
+    background-color: #4CAF50;
+    color: white;
+    padding: 1em 0;
+    text-align: center;
+    position: relative;
+}
+
+header h1 {
+    margin: 0;
+}
+
+header #menuButton {
+    position: absolute;
+    top: 10px;
+    right: 10px; /* Mover el botón del menú a la derecha */
+    padding: 5px 10px;
+    font-size: 14px;
+    background-color: #f44336;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+header #menuButton:hover {
+    background-color: #d32f2f;
+}
+
+.module-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 20px;
+}
+
+.module {
+    margin: 10px;
+    text-align: center;
+    text-decoration: none;
+    color: black;
+    transition: transform 0.3s ease; /* Añadir transición para la animación */
+    flex: 1 1 calc(20% - 20px); /* Ajustar el ancho para que haya 5 por fila */
+    box-sizing: border-box; /* Incluir el padding y el borde en el tamaño total */
+}
+
+.module:hover {
+    transform: scale(1.1); /* Agrandar la imagen al pasar el mouse */
+}
+
+.module img {
+    width: auto; /* Ajustar el ancho de la imagen al contenedor */
+    height: auto; /* Mantener la proporción de la imagen */
+    object-fit: cover; /* Asegurar que las imágenes no se vean cortadas */
+}
+
+.module p {
+    margin: 10px 0 0;
+    font-weight: bold;
+}
+
+section.module-content {
+    display: none; /* Ocultar contenido de módulos por defecto */
+    padding: 20px;
+}
+
+.side-menu {
+    position: fixed;
+    top: 0;
+    right: -300px; /* Ocultar completamente el menú inicialmente */
+    width: 150px; /* Ajustar el ancho del menú */
+    height: 100%;
+    background-color: #333;
+    color: white;
+    padding: 20px;
+    box-shadow: -2px 0 5px rgba(0,0,0,0.5); /* Ajustar la sombra para el lado derecho */
+    transition: right 0.3s ease; /* Cambiar la transición a 'right' */
+    z-index: 900; /* Asegúrate de que el menú esté por encima de otros elementos */
+}
+
+.side-menu a {
+    color: white;
+    text-decoration: none;
+    display: block;
+    margin: 10px 0;
+}
+
+.side-menu a:hover {
+    background-color: #575757; /* Cambiar el color de fondo al pasar el mouse */
+    color: yellowgreen;
+}
+
+.side-menu button {
+    background-color: #f44336;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+
+.side-menu button:hover {
+    background-color: #d32f2f;
+}
+
+.side-menu.open {
+    right: 0; /* Mostrar el menú cuando esté abierto */
+}
