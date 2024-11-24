@@ -127,7 +127,7 @@ if ($stmt->rowCount()) {
     // Sección: Antigüedad y Cumplimiento
     $pdf->SectionTitle('Antigüedad y Cumplimiento');
     $pdf->SectionContent('Días antigüedad', $diff->days);
-    $pdf->SectionContent('Cumplimiento', '0%');
+    $pdf->SectionContent('Cumplimiento', $row['progressValue'].'%');
 
     // Sección: Proceso Interno
     $pdf->SectionTitle('Proceso Interno');
