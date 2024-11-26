@@ -27,7 +27,7 @@ class PDF extends FPDF
         // Arial italic 8
         $this->SetFont('Arial','I',8);
         // Número de página
-        $this->Cell(0,10,'Página '.$this->PageNo().'/{nb}',0,0,'C');
+        $this->Cell(0,10,utf8_decode('Página ').$this->PageNo().'/{nb}',0,0,'C');
     }
 
     // Sección estilizada
@@ -35,7 +35,7 @@ class PDF extends FPDF
     {
         $this->SetFont('Arial','B',12);
         $this->SetFillColor(200,220,255);
-        $this->Cell(0,10,$title,0,1,'L', true);
+        $this->Cell(0,10,utf8_decode($title),0,1,'L', true);
         $this->Ln(2);
     }
 
@@ -44,9 +44,9 @@ class PDF extends FPDF
     {
         $this->SetFont('Arial','',12);
         $this->SetFillColor(240,240,240);
-        $this->Cell(50,10,$label.':',0,0,'L', true);
+        $this->Cell(50,10,utf8_decode($label).':',0,0,'L', true);
         $this->SetFont('Arial','B',12);
-        $this->Cell(0,10,$value,0,1,'L', true);
+        $this->Cell(0,10,utf8_decode($value),0,1,'L', true);
         $this->Ln(2);
     }
 
@@ -62,7 +62,7 @@ class PDF extends FPDF
         // Cabecera
         $w = array(40, 35, 40, 45);
         for($i=0;$i<count($header);$i++)
-            $this->Cell($w[$i],7,$header[$i],1,0,'C',true);
+            $this->Cell($w[$i],7,utf8_decode($header[$i]),1,0,'C',true);
         $this->Ln();
         // Restauración de colores y fuentes
         $this->SetFillColor(224,235,255);
@@ -72,10 +72,10 @@ class PDF extends FPDF
         $fill = false;
         foreach($data as $row)
         {
-            $this->Cell($w[0],6,$row['fechaProgramado'],'LR',0,'L',$fill);
-            $this->Cell($w[1],6,$row['nombre'],'LR',0,'L',$fill);
-            $this->Cell($w[2],6,$row['direccion'],'LR',0,'L',$fill);
-            $this->Cell($w[3],6,$row['ciudad'],'LR',0,'L',$fill);
+            $this->Cell($w[0],6,utf8_decode($row['fechaProgramado']),'LR',0,'L',$fill);
+            $this->Cell($w[1],6,utf8_decode($row['nombre']),'LR',0,'L',$fill);
+            $this->Cell($w[2],6,utf8_decode($row['direccion']),'LR',0,'L',$fill);
+            $this->Cell($w[3],6,utf8_decode($row['ciudad']),'LR',0,'L',$fill);
             $this->Ln();
             $fill = !$fill;
         }
@@ -127,7 +127,7 @@ if ($stmt->rowCount()) {
     // Sección: Antigüedad y Cumplimiento
     $pdf->SectionTitle('Antigüedad y Cumplimiento');
     $pdf->SectionContent('Días antigüedad', $diff->days);
-    $pdf->SectionContent('Cumplimiento',  $row['progressValue'].'%');
+    $pdf->SectionContent('Cumplimiento', '0%');
 
     // Sección: Proceso Interno
     $pdf->SectionTitle('Proceso Interno');

@@ -1,9 +1,9 @@
 <?php
- $host = "localhost";
- $db = "tacktime"; 
- $charset = 'utf8mb4';
- $user = "root";
- $pass = "";
+$host = "localhost";
+$db = "tacktime"; 
+$charset = 'utf8mb4';
+$user = "root";
+$pass="";
 
  //Se usa el API de PDO para persistir los datos en las bases de datos mas comunes
  //configuracion de comportamiento por defecto para el API PDO

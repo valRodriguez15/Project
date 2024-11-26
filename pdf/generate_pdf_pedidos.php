@@ -8,7 +8,7 @@ class PDF extends FPDF
     function Header()
     {
         // Logo
-        $this->Image('../assets/images/logo.jpeg',10,8,33);
+        // $this->Image('../assets/images/logo.png',10,8,33);
         // Arial bold 15
         $this->SetFont('Arial','B',15);
         // Movernos a la derecha
@@ -27,7 +27,7 @@ class PDF extends FPDF
         // Arial italic 8
         $this->SetFont('Arial','I',8);
         // Número de página
-        $this->Cell(0,10,'Página '.$this->PageNo().'/{nb}',0,0,'C');
+        $this->Cell(0,10,utf8_decode('Página ').$this->PageNo().'/{nb}',0,0,'C');
     }
 
     // Tabla estilizada
@@ -42,7 +42,7 @@ class PDF extends FPDF
         // Cabecera
         $w = array(20, 40, 35, 35, 35, 25, 25); // Anchos de las columnas ajustados
         for($i=0;$i<count($header);$i++)
-            $this->Cell($w[$i],7,$header[$i],1,0,'C',true);
+            $this->Cell($w[$i],7,utf8_decode($header[$i]),1,0,'C',true);
         $this->Ln();
         // Restauración de colores y fuentes
         $this->SetFillColor(224,235,255);
@@ -52,12 +52,12 @@ class PDF extends FPDF
         $fill = false;
         foreach($data as $row)
         {
-            $this->Cell($w[0],6,$row['id'],'LR',0,'C',$fill);
-            $this->Cell($w[1],6,$row['nombre'],'LR',0,'C',$fill);
-            $this->Cell($w[2],6,$row['direccion'],'LR',0,'C',$fill);
-            $this->Cell($w[3],6,$row['nombreProducto'],'LR',0,'C',$fill);
-            $this->Cell($w[4],6,$row['cantidad'],'LR',0,'C',$fill);
-            $this->Cell($w[5],6,$row['ciudad'],'LR',0,'C',$fill);
+            $this->Cell($w[0],6,utf8_decode($row['id']),'LR',0,'C',$fill);
+            $this->Cell($w[1],6,utf8_decode($row['nombre']),'LR',0,'C',$fill);
+            $this->Cell($w[2],6,utf8_decode($row['direccion']),'LR',0,'C',$fill);
+            $this->Cell($w[3],6,utf8_decode($row['nombreProducto']),'LR',0,'C',$fill);
+            $this->Cell($w[4],6,utf8_decode($row['cantidad']),'LR',0,'C',$fill);
+            $this->Cell($w[5],6,utf8_decode($row['ciudad']),'LR',0,'C',$fill);
             $this->Ln();
             $fill = !$fill;
         }

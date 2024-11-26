@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -101,9 +99,9 @@
 
     <!-- Contenido principal -->
     <div class="container">
-        <h2>HISTORIAL DE PEDIDOS REALIZADOS</h2>
+        <h2>Historial de Pedidos Realizados</h2>
         <div class="d-flex justify-content-center my-4">
-        <button type="button" class="btn btn-warning" onclick="window.location.href='./indexAdmin.php'">Todos</button>
+        <button type="button" class="btn btn-warning" id="todosBtn">Todos</button>
             <button type="button" class="btn btn-success mx-2" id="completadosBtn">Completados</button>
             <button type="button" class="btn btn-danger mx-2" id="pendientesBtn">Pendientes</button>
         </div>
@@ -113,14 +111,28 @@
             <div class="alert alert-info text-center" role="alert">
                 Seleccione una opción para cargar los pedidos.
             </div>
-            <?php
-                require_once "read.php";
-                ?>
         </div>
+
     </div>
 
     <script>
         // Manejo de los botones para cargar pedidos
+        document.getElementById('todosBtn').addEventListener('click', function() {
+            fetch('./read.php')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('pedidoContent').innerHTML = data;
+                })
+                .catch(error => {
+                    document.getElementById('pedidoContent').innerHTML = `
+                        <div class="alert alert-danger" role="alert">
+                            Ocurrió un error al cargar los pedidos pendientes. Por favor, intente de nuevo.
+                        </div>
+                    `;
+                    console.error('Error al cargar los pedidos pendientes:', error);
+                });
+        });
+
         document.getElementById('completadosBtn').addEventListener('click', function() {
             fetch('./readCompletados.php')
                 .then(response => response.text())

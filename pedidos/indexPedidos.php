@@ -35,6 +35,17 @@ function getProducts($conn)
     }
     return $products;
 }
+
+//Función validar fecha actual
+
+function validarFecha($fecha, $formato = 'Y-m-d')
+{
+    $d = DateTime::createFromFormat($formato, $fecha);
+    return $d && $d->format($formato) === $fecha;
+}
+
+$errores = [];
+$fechaActual = date('Y-m-d');
 ?>
 
 <!DOCTYPE html>
@@ -234,7 +245,7 @@ function getProducts($conn)
                                         <div class="col-sm-6 mb-3">
                                             <div class="form-group">
                                                 <label class="required-field" for="fechaProgramado">Fecha</label>
-                                                <input type="date" name="fechaProgramado" id="fechaProgramado" class="form-control" value="<?php echo $fechaProgramado ?>" required>
+                                                <input type="date" name="fechaProgramado" id="fechaProgramado" class="form-control" min="<?php echo $fechaActual; ?>" value="<?php echo $fechaProgramado ?>" required>
                                             </div>
                                         </div>
                                         <div class="col-sm-6 mb-3">
@@ -264,7 +275,7 @@ function getProducts($conn)
                                         <div class="col-sm-6 mb-3">
                                             <div class="form-group">
                                                 <label class="required-field" for="cantidad">Cantidad</label>
-                                                <input type="number" name="cantidad" id="cantidad" class="form-control" min=0 value="<?php echo $cantidad ?>" required>
+                                                <input type="number" name="cantidad" id="cantidad" class="form-control" min=0 max=15000 value="<?php echo $cantidad ?>" required>
                                             </div>
                                         </div>
                                         <div class="col-sm-6 mb-3">

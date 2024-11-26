@@ -17,8 +17,6 @@ $stmt->execute();
 
 if ($stmt->rowCount()) {
     $row = $stmt->fetch();
-
-    
     echo '<div class="container-fluid">';
     echo '<div class="row">';
         echo '<div class="col-md-12">';
@@ -52,8 +50,6 @@ if ($stmt->rowCount()) {
         echo '</div>';
     echo '</div>  ';      
 echo '</div>';
-
- 
 }
 
 // cerrar el resultado

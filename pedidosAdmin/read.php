@@ -15,7 +15,6 @@ if ($resultado = $pdo->query($sql)) {
                 }
                 echo "<div class='row'>"; // Abre una nueva fila
             }
-
             echo "<div class='col-lg-4 col-md-4 col-sm-6 col-xs-12'>";
             echo "<div class='pricing-table'>";
             echo "<div class='pricing-table-title'>";
@@ -39,25 +38,23 @@ if ($resultado = $pdo->query($sql)) {
             echo "<li><strong>Ciudad de Entrega: " . $row["ciudad"] . "</strong></li>";
             if ( $row["progressValue"] == 100 ){
             echo "<li><strong> Completado ". $row["progressValue"] . "%</strong></li>";
-            }else{
-                echo "<li><strong> Pendiente ". $row["progressValue"] ."%</strong></li>";
-            }
-            echo "</ul>";
-
-            if ( $row["progressValue"] == 100 ){
             echo "<div class='pricing-table-button'>";
             echo '<a href="../factura/factura.php?id='. $row["id"] .'" class="btn btn-outline-warning"><span>Generar Factura</span></a>';
             echo ' ';
             }else{
+                echo "<li><strong> Pendiente ". $row["progressValue"] ."%</strong></li>";
+                echo "<div class='pricing-table-button'>";
                 echo '<a href="./create.php?idA='.$row["idA"] .'" class="btn btn-success"><span>Aceptar Pedido</span></a>';
                 echo ' ';
                 echo '<a href="./delete.php?idA='.$row["idA"].'" class="btn btn-danger"><span>Declinar Pedido</span></a>';
-            }            
+            }
+            echo "</ul>";           
 
             echo "</div>";
             echo "</div>";
             echo "</div>";
-            echo "</div>";
+            
+           
             
             $count++;
         }

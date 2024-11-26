@@ -27,7 +27,7 @@ class PDF extends FPDF
         // Arial italic 8
         $this->SetFont('Arial','I',8);
         // Número de página
-        $this->Cell(0,10,'Página '.$this->PageNo().'/{nb}',0,0,'C');
+        $this->Cell(0,10,utf8_decode('Página ').$this->PageNo().'/{nb}',0,0,'C');
     }
 
     // Tabla estilizada
@@ -42,7 +42,7 @@ class PDF extends FPDF
         // Cabecera
         $w = array(30, 62, 63, 58, 70);
         for($i=0;$i<count($header);$i++)
-            $this->Cell($w[$i],7,$header[$i],1,0,'C',true);
+            $this->Cell($w[$i],7,utf8_decode($header[$i]),1,0,'C',true);
         $this->Ln();
         // Restauración de colores y fuentes
         $this->SetFillColor(224,235,255);

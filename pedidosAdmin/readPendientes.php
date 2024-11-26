@@ -40,11 +40,9 @@ if ($resultado = $pdo->query($sql)) {
             echo "<li><strong>Producto Solicitado: " . $row["nombreProducto"] . "</strong></li>";
             echo "<li><strong>Cantidad de ". $row["nombreProducto"] .": " . $row["cantidad"] . "</strong></li>";
             echo "<li><strong>Ciudad de Entrega: " . $row["ciudad"] . "</strong></li>";
-            if ( $row["progressValue"] == 100 ){
-                echo "<li><strong> Completado ". $row["progressValue"] . "%</strong></li>";
-                }else{
+        
                     echo "<li><strong> Pendiente ". $row["progressValue"] . "%</strong></li>";
-                }
+                
             echo "</ul>";
 
            
@@ -54,13 +52,12 @@ if ($resultado = $pdo->query($sql)) {
             echo ' ';
             echo '<a href="./delete.php?idA='.$row["idA"].'" class="btn btn-danger"><span>Declinar Pedido</span></a>';
             echo ' ';
-            echo ' ';
-            echo ' ';
+          
 
             echo "</div>";
-            echo "</div>";
-            echo "</div>";
-            echo "</div>";  
+                echo "</div>";
+                echo "</div>";
+                echo "</div>";
 
             $count++;
         
